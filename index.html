@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tlili Mohamed | DevOps Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0.5rem 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h2, h3 {
+      color: #2c3e50;
+    }
+    .project {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: white;
+      border-left: 5px solid #3498db;
+    }
+    .contact a {
+      display: inline-block;
+      margin-right: 1rem;
+      color: #3498db;
+      text-decoration: none;
+    }
+    .skills ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .skills li::before {
+      content: '✔️';
+      margin-right: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #ecf0f1;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tlili Mohamed</h1>
+    <p>DevOps | Cloud Infrastructure | Network Engineering</p>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>About Me</h2>
+      <p>I'm a Computer Systems Networking graduate from ISET Kairouan with a strong foundation in DevOps, cloud infrastructure, and network administration. Passionate about automating deployments and monitoring distributed systems, I’ve gained hands-on experience through both academic projects and professional internships. I thrive in environments that embrace agile methodologies and cutting-edge technologies.</p>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>CI/CD Automation for Web Apps using GitLab CI, Docker & Kubernetes</h3>
+        <p>Developed a complete CI/CD pipeline for microservices-based web applications. Deployed front-end and back-end services in a Kubernetes cluster, integrated Docker for containerization, and implemented GitLab CI for continuous integration and delivery.</p>
+        <p><strong>Tools:</strong> GitLab CI/CD, Docker, Kubernetes, SonarQube, Prometheus, Grafana</p>
+        <p><em>Associated with IT-Gate</em></p>
+        <a href="https://gitlab.com/Med-Tl">🔗 Gitlab Link</a>
+      </div>
+      <div class="project">
+        <h3>Secure Corporate Network Design – Tunisie Telecom</h3>
+        <p>Designed and simulated a secure enterprise network using Packet Tracer for Tunisie Telecom's branch office, including inter-VLAN routing, DHCP services, and OSPF-based WAN connections between branches. Focused on availability, performance, and scalability.</p>
+        <p><em>No public repo – educational project</em></p>
+      </div>
+      <div class="project">
+        <h3>Terraform IaC for AWS Infrastructure</h3>
+        <p>Created reusable Terraform modules to provision AWS infrastructure (EC2, RDS, S3) in a DevOps project. Managed resources using code and automated deployments to ensure consistency and scalability.</p>
+        <p><strong>Tools:</strong> Terraform, AWS EC2/RDS/S3, GitLab CI/CD</p>
+        <p><em>Private GitLab Repo</em></p>
+      </div>
+      <div class="project">
+        <h3>Local DevOps CI/CD Pipeline with Jenkins, ArgoCD & Full Observability Stack</h3>
+        <p>Built a complete local DevOps pipeline from scratch — CI with Jenkins, Maven, SonarQube, and Docker; CD with ArgoCD, Helm, and Kubernetes (Minikube). Integrated Prometheus, Grafana, Filebeat, OpenSearch, and Kibana for real-time monitoring and logging. All tools containerized via Docker & orchestrated using Docker Compose + Kubernetes. Ideal for testing features, automating builds, and observing deployments end-to-end.</p>
+        <p><strong>Tools:</strong> Jenkins, Maven, SonarQube, Docker, ArgoCD, Helm, Kubernetes (Minikube), Prometheus, Grafana, Filebeat, OpenSearch, Kibana</p>
+        <p><em>Associated with ISET Kairouan</em></p>
+        <a href="https://github.com/Med-Tl/devops-demo-project" target="_blank">🔗 GitHub Link</a>
+      </div>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>DevOps: GitLab CI/CD, Docker, Kubernetes, Terraform, Ansible</li>
+        <li>Cloud Platforms: AWS (EC2, RDS, S3, IAM), Minikube</li>
+        <li>Monitoring: Prometheus, Grafana, SonarQube</li>
+        <li>Networking: OSPF, VLAN, DHCP, Cisco Packet Tracer</li>
+        <li>Languages: Bash, YAML, JavaScript (basic)</li>
+        <li>Methodologies: Scrum, Agile, Infrastructure as Code (IaC)</li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:hammatlili666@gmail.com">hammatlili666@gmail.com</a></p>
+      <p><a href="https://linktr.ee/mohamed_tlili11" target="_blank">🌐 Linktree</a></p>
+      <p><a href="https://www.linkedin.com/in/mohamed-tlili11/" target="_blank">💼 LinkedIn</a></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Tlili Mohamed. All rights reserved.</p>
+  </footer>
+</body>
+</html>
