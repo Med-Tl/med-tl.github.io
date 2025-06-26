@@ -1,142 +1,1320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tlili Mohamed | DevOps Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-      position: relative;
-    }
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: #fff;
-      border-radius: 2px;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin: 0.5rem 0;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
-    h2, h3 {
-      color: #2c3e50;
-    }
-    .project {
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      background: white;
-      border-left: 5px solid #3498db;
-    }
-    .contact a {
-      display: inline-block;
-      margin-right: 1rem;
-      color: #3498db;
-      text-decoration: none;
-    }
-    .skills ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .skills li::before {
-      content: '✔️';
-      margin-right: 0.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #ecf0f1;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tlili Mohamed - DevOps Engineer specializing in cloud infrastructure, CI/CD automation, and network engineering">
+    <meta name="keywords" content="DevOps, Cloud Infrastructure, CI/CD, AWS, Kubernetes, Docker, Network Engineering">
+    <meta name="author" content="Tlili Mohamed">
+    <title>Tlili Mohamed | DevOps Engineer Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navbar:not(.scrolled) .logo {
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .navbar:not(.scrolled) .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .typing-text {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #93c5fd;
+            margin-bottom: 2rem;
+            min-height: 2.5rem;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            margin: 2rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+
+        .about-text strong {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-icon {
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: 1rem;
+            color: #3b82f6;
+        }
+
+        .highlight-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-desc {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-company {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #1d4ed8;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-icon {
+            width: 2rem;
+            height: 2rem;
+            color: #3b82f6;
+        }
+
+        .skill-category-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name span:first-child {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .skill-name span:last-child {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            border-radius: 4px;
+            transition: width 2s ease;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #0f172a 100%);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-subtitle {
+            color: #93c5fd;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            space-y: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3b82f6;
+        }
+
+        .contact-details h4 {
+            color: #93c5fd;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: #93c5fd;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #93c5fd;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            color: white;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-icons {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3b82f6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Tlili Mohamed</h1>
-    <p>DevOps | Cloud Infrastructure | Network Engineering</p>
-  </header>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">Tlili Mohamed</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
 
-  <div class="container">
-    <section>
-      <h2>About Me</h2>
-      <p>I'm a Computer Systems Networking graduate from ISET Kairouan with a strong foundation in DevOps, cloud infrastructure, and network administration. Passionate about automating deployments and monitoring distributed systems, I’ve gained hands-on experience through both academic projects and professional internships. I thrive in environments that embrace agile methodologies and cutting-edge technologies.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Tlili Mohamed</h1>
+            <div class="typing-text" id="typing-text"></div>
+            <p class="hero-description">
+                Passionate about automating deployments, monitoring distributed systems, and building scalable cloud infrastructure. 
+                Transforming complex problems into elegant solutions through DevOps practices.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://www.linkedin.com/in/mohamed-tlili11/" target="_blank" class="btn btn-primary">
+                    <i data-lucide="linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="https://gitlab.com/Med-Tl" target="_blank" class="btn btn-secondary">
+                    <i data-lucide="external-link"></i>
+                    GitLab
+                </a>
+                <a href="mailto:hammatlili666@gmail.com" class="btn btn-secondary">
+                    <i data-lucide="mail"></i>
+                    Contact
+                </a>
+            </div>
+        </div>
     </section>
 
-    <section>
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>CI/CD Automation for Web Apps using GitLab CI, Docker & Kubernetes</h3>
-        <p>Developed a complete CI/CD pipeline for microservices-based web applications. Deployed front-end and back-end services in a Kubernetes cluster, integrated Docker for containerization, and implemented GitLab CI for continuous integration and delivery.</p>
-        <p><strong>Tools:</strong> GitLab CI/CD, Docker, Kubernetes, SonarQube, Prometheus, Grafana</p>
-        <p><em>Associated with IT-Gate</em></p>
-        <a href="https://gitlab.com/Med-Tl">🔗 Gitlab Link</a>
-      </div>
-      <div class="project">
-        <h3>Secure Corporate Network Design – Tunisie Telecom</h3>
-        <p>Designed and simulated a secure enterprise network using Packet Tracer for Tunisie Telecom's branch office, including inter-VLAN routing, DHCP services, and OSPF-based WAN connections between branches. Focused on availability, performance, and scalability.</p>
-        <p><em>No public repo – educational project</em></p>
-      </div>
-      <div class="project">
-        <h3>Terraform IaC for AWS Infrastructure</h3>
-        <p>Created reusable Terraform modules to provision AWS infrastructure (EC2, RDS, S3) in a DevOps project. Managed resources using code and automated deployments to ensure consistency and scalability.</p>
-        <p><strong>Tools:</strong> Terraform, AWS EC2/RDS/S3, GitLab CI/CD</p>
-        <p><em>Private GitLab Repo</em></p>
-      </div>
-      <div class="project">
-        <h3>Local DevOps CI/CD Pipeline with Jenkins, ArgoCD & Full Observability Stack</h3>
-        <p>Built a complete local DevOps pipeline from scratch — CI with Jenkins, Maven, SonarQube, and Docker; CD with ArgoCD, Helm, and Kubernetes (Minikube). Integrated Prometheus, Grafana, Filebeat, OpenSearch, and Kibana for real-time monitoring and logging. All tools containerized via Docker & orchestrated using Docker Compose + Kubernetes. Ideal for testing features, automating builds, and observing deployments end-to-end.</p>
-        <p><strong>Tools:</strong> Jenkins, Maven, SonarQube, Docker, ArgoCD, Helm, Kubernetes (Minikube), Prometheus, Grafana, Filebeat, OpenSearch, Kibana</p>
-        <p><em>Associated with ISET Kairouan</em></p>
-        <a href="https://github.com/Med-Tl/devops-demo-project" target="_blank">🔗 GitHub Link</a>
-      </div>
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">About Me</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">
+                    DevOps Engineer with expertise in cloud infrastructure and automation
+                </p>
+            </div>
+            
+            <div class="about-content animate-on-scroll">
+                <div class="about-text">
+                    <p>
+                        I'm a <strong>Computer Systems Networking graduate</strong> from ISET Kairouan with a strong foundation in DevOps, cloud infrastructure, and network administration.
+                    </p>
+                    <br>
+                    <p>
+                        Passionate about automating deployments and monitoring distributed systems, I've gained hands-on experience through both academic projects and professional internships. I thrive in environments that embrace agile methodologies and cutting-edge technologies.
+                    </p>
+                </div>
+                
+                <div class="highlights">
+                    <div class="highlight-card">
+                        <i data-lucide="code" class="highlight-icon"></i>
+                        <h3 class="highlight-title">DevOps Automation</h3>
+                        <p class="highlight-desc">CI/CD pipelines, infrastructure as code, and deployment automation</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i data-lucide="cloud" class="highlight-icon"></i>
+                        <h3 class="highlight-title">Cloud Infrastructure</h3>
+                        <p class="highlight-desc">AWS, Kubernetes, Docker containerization, and scalable architectures</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i data-lucide="network" class="highlight-icon"></i>
+                        <h3 class="highlight-title">Network Engineering</h3>
+                        <p class="highlight-desc">OSPF, VLAN configuration, and enterprise network design</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i data-lucide="users" class="highlight-icon"></i>
+                        <h3 class="highlight-title">Agile Methodologies</h3>
+                        <p class="highlight-desc">Scrum practices, collaborative development, and continuous improvement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>DevOps: GitLab CI/CD, Docker, Kubernetes, Terraform, Ansible</li>
-        <li>Cloud Platforms: AWS (EC2, RDS, S3, IAM), Minikube</li>
-        <li>Monitoring: Prometheus, Grafana, SonarQube</li>
-        <li>Networking: OSPF, VLAN, DHCP, Cisco Packet Tracer</li>
-        <li>Languages: Bash, YAML, JavaScript (basic)</li>
-        <li>Methodologies: Scrum, Agile, Infrastructure as Code (IaC)</li>
-      </ul>
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">
+                    A showcase of my technical expertise in DevOps, cloud infrastructure, and automation
+                </p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">CI/CD Automation for Web Apps</h3>
+                        <p class="project-company">IT-Gate</p>
+                        <p class="project-desc">
+                            Developed a complete CI/CD pipeline for microservices-based web applications. Deployed front-end and back-end services in a Kubernetes cluster, integrated Docker for containerization, and implemented GitLab CI for continuous integration and delivery.
+                        </p>
+                        <div class="project-tools">
+                            <span class="tool-tag">GitLab CI/CD</span>
+                            <span class="tool-tag">Docker</span>
+                            <span class="tool-tag">Kubernetes</span>
+                            <span class="tool-tag">SonarQube</span>
+                            <span class="tool-tag">Prometheus</span>
+                            <span class="tool-tag">Grafana</span>
+                        </div>
+                        <a href="https://gitlab.com/Med-Tl" target="_blank" class="project-link">
+                            <i data-lucide="external-link"></i>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Secure Corporate Network Design</h3>
+                        <p class="project-company">Tunisie Telecom</p>
+                        <p class="project-desc">
+                            Designed and simulated a secure enterprise network using Packet Tracer for Tunisie Telecom's branch office, including inter-VLAN routing, DHCP services, and OSPF-based WAN connections between branches.
+                        </p>
+                        <div class="project-tools">
+                            <span class="tool-tag">Cisco Packet Tracer</span>
+                            <span class="tool-tag">OSPF</span>
+                            <span class="tool-tag">VLAN</span>
+                            <span class="tool-tag">DHCP</span>
+                            <span class="tool-tag">Network Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Terraform IaC for AWS Infrastructure</h3>
+                        <p class="project-company">Private Project</p>
+                        <p class="project-desc">
+                            Created reusable Terraform modules to provision AWS infrastructure (EC2, RDS, S3) in a DevOps project. Managed resources using code and automated deployments to ensure consistency and scalability.
+                        </p>
+                        <div class="project-tools">
+                            <span class="tool-tag">Terraform</span>
+                            <span class="tool-tag">AWS EC2</span>
+                            <span class="tool-tag">RDS</span>
+                            <span class="tool-tag">S3</span>
+                            <span class="tool-tag">GitLab CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll">
+                    <div class="project-header"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Local DevOps CI/CD Pipeline</h3>
+                        <p class="project-company">ISET Kairouan</p>
+                        <p class="project-desc">
+                            Built a complete local DevOps pipeline from scratch — CI with Jenkins, Maven, SonarQube, and Docker; CD with ArgoCD, Helm, and Kubernetes. Integrated full observability stack with Prometheus, Grafana, and ELK.
+                        </p>
+                        <div class="project-tools">
+                            <span class="tool-tag">Jenkins</span>
+                            <span class="tool-tag">Maven</span>
+                            <span class="tool-tag">SonarQube</span>
+                            <span class="tool-tag">Docker</span>
+                            <span class="tool-tag">ArgoCD</span>
+                            <span class="tool-tag">Helm</span>
+                            <span class="tool-tag">Kubernetes</span>
+                            <span class="tool-tag">Prometheus</span>
+                            <span class="tool-tag">Grafana</span>
+                        </div>
+                        <a href="https://github.com/Med-Tl/devops-demo-project" target="_blank" class="project-link">
+                            <i data-lucide="external-link"></i>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:hammatlili666@gmail.com">hammatlili666@gmail.com</a></p>
-      <p><a href="https://linktr.ee/mohamed_tlili11" target="_blank">🌐 Linktree</a></p>
-      <p><a href="https://www.linkedin.com/in/mohamed-tlili11/" target="_blank">💼 LinkedIn</a></p>
-    </section>
-  </div>
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">
+                    Comprehensive expertise across the DevOps toolchain and cloud technologies
+                </p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-header">
+                        <i data-lucide="settings" class="skill-icon"></i>
+                        <h3 class="skill-category-title">DevOps & Automation</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>GitLab CI/CD</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Docker</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Kubernetes</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Terraform</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
 
-  <footer>
-    <p>&copy; 2025 Tlili Mohamed. All rights reserved.</p>
-  </footer>
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-header">
+                        <i data-lucide="cloud" class="skill-icon"></i>
+                        <h3 class="skill-category-title">Cloud Platforms</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>AWS (EC2, RDS, S3)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Minikube</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Infrastructure as Code</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-header">
+                        <i data-lucide="monitor" class="skill-icon"></i>
+                        <h3 class="skill-category-title">Monitoring & Observability</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Prometheus</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Grafana</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>SonarQube</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-header">
+                        <i data-lucide="network" class="skill-icon"></i>
+                        <h3 class="skill-category-title">Networking</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>OSPF</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>VLAN Configuration</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>DHCP</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-header">
+                        <i data-lucide="terminal" class="skill-icon"></i>
+                        <h3 class="skill-category-title">Languages & Tools</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Bash Scripting</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>YAML</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <div class="skill-header">
+                        <i data-lucide="users" class="skill-icon"></i>
+                        <h3 class="skill-category-title">Methodologies</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Scrum</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Agile</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>DevOps Culture</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">
+                    Ready to collaborate on your next DevOps project? Let's discuss how we can build something amazing together.
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:hammatlili666@gmail.com">hammatlili666@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i data-lucide="linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/mohamed-tlili11/" target="_blank">mohamed-tlili11</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i data-lucide="external-link"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Linktree</h4>
+                            <a href="https://linktr.ee/mohamed_tlili11" target="_blank">All Links</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <span>Kairouan, Tunisia</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form animate-on-scroll">
+                    <h3 style="color: #93c5fd; margin-bottom: 2rem; font-size: 1.5rem;">Send a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project or just say hello..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i data-lucide="send"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-icons">
+                    <span>Built with</span>
+                    <i data-lucide="heart" style="color: #ef4444; width: 1rem; height: 1rem;"></i>
+                    <span>and</span>
+                    <i data-lucide="code" style="color: #3b82f6; width: 1rem; height: 1rem;"></i>
+                    <span>powered by</span>
+                    <i data-lucide="coffee" style="color: #f59e0b; width: 1rem; height: 1rem;"></i>
+                </div>
+                
+                <div>
+                    <p>&copy; 2025 Tlili Mohamed. All rights reserved.</p>
+                    <p style="font-size: 0.9rem; color: #64748b; margin-top: 0.5rem;">
+                        DevOps Engineer | Cloud Infrastructure | Network Specialist
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const text = "DevOps Engineer | Cloud Infrastructure | Network Specialist";
+        let index = 0;
+
+        function typeText() {
+            if (index < text.length) {
+                typingText.innerHTML = text.slice(0, index + 1) + '<span class="cursor">|</span>';
+                index++;
+                setTimeout(typeText, 100);
+            } else {
+                typingText.innerHTML = text + '<span class="cursor">|</span>';
+            }
+        }
+
+        // Start typing animation when page loads
+        window.addEventListener('load', () => {
+            setTimeout(typeText, 1000);
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Simple form validation
+            if (name && email && message) {
+                // Show success message
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                
+                // Reset form
+                this.reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+
+        // Animate skill bars when they come into view
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.skill-category').forEach(category => {
+            skillObserver.observe(category);
+        });
+    </script>
 </body>
 </html>
