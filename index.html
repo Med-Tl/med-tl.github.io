@@ -308,9 +308,126 @@
             line-height: 1.6;
         }
 
+        /* Certifications Section */
+        .certifications {
+            background: white;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .certification-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .certification-header {
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+        }
+
+        .certification-header.aws {
+            background: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+        }
+
+        .certification-header.cisco {
+            background: linear-gradient(135deg, #1ba0d7 0%, #0d5f8a 100%);
+        }
+
+        .certification-header.security {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        }
+
+        .certification-header.git {
+            background: linear-gradient(135deg, #f05032 0%, #c73e1d 100%);
+        }
+
+        .certification-header.linux {
+            background: linear-gradient(135deg, #fcc419 0%, #f59e0b 100%);
+        }
+
+        .certification-content {
+            padding: 2rem;
+        }
+
+        .certification-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-issuer {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .certification-date {
+            color: #475569;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .certification-details {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .certification-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-earned {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-in-progress {
+            background: #fef3c7;
+            color: #92400e;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .certification-id {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-family: 'Courier New', monospace;
+            background: #f8fafc;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
         /* Projects Section */
         .projects {
-            background: white;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
 
         .projects-grid {
@@ -393,7 +510,7 @@
 
         /* Skills Section */
         .skills {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: white;
         }
 
         .skills-grid {
@@ -627,6 +744,10 @@
                 gap: 2rem;
             }
 
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -682,6 +803,7 @@
             <a href="#hero" class="logo">Tlili Mohamed</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -732,7 +854,7 @@
             <div class="about-content animate-on-scroll">
                 <div class="about-text">
                     <p>
-                        I'm an <strong>Information Technology graduate</strong> from ISET Kairouan with a strong foundation in DevOps, cloud infrastructure, and network administration.
+                        I'm a <strong>Computer Systems Networking graduate</strong> from ISET Kairouan with a strong foundation in DevOps, cloud infrastructure, and network administration.
                     </p>
                     <br>
                     <p>
@@ -760,6 +882,141 @@
                         <i data-lucide="users" class="highlight-icon"></i>
                         <h3 class="highlight-title">Agile Methodologies</h3>
                         <p class="highlight-desc">Scrum practices, collaborative development, and continuous improvement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section certifications" id="certifications">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Certifications</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">
+                    Professional certifications and continuous learning achievements
+                </p>
+            </div>
+            
+            <div class="certifications-grid">
+                <!-- In Progress Certifications -->
+                <div class="certification-card animate-on-scroll">
+                    <div class="certification-header aws"></div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">AWS Cloud Quest: Cloud Practitioner</h3>
+                        <p class="certification-issuer">Amazon Web Services (AWS)</p>
+                        <p class="certification-date">Currently in Progress</p>
+                        <p class="certification-details">
+                            Interactive cloud learning experience covering AWS fundamentals, core services, and cloud concepts through hands-on labs and real-world scenarios.
+                        </p>
+                        <div class="certification-status status-in-progress">
+                            <i data-lucide="clock"></i>
+                            In Progress
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card animate-on-scroll">
+                    <div class="certification-header aws"></div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">AWS Cloud Practitioner Essentials</h3>
+                        <p class="certification-issuer">Amazon Web Services (AWS)</p>
+                        <p class="certification-date">Currently in Progress</p>
+                        <p class="certification-details">
+                            Foundational course covering AWS cloud concepts, services, security, architecture, pricing, and support to prepare for AWS Cloud Practitioner certification.
+                        </p>
+                        <div class="certification-status status-in-progress">
+                            <i data-lucide="clock"></i>
+                            In Progress
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Certifications -->
+                <div class="certification-card animate-on-scroll">
+                    <div class="certification-header linux"></div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Introduction to Linux Forensics</h3>
+                        <p class="certification-issuer">Digital Dojo</p>
+                        <p class="certification-date">February 27, 2025 | Duration: 1 hour</p>
+                        <p class="certification-details">
+                            Comprehensive introduction to Linux forensics techniques, file system analysis, and digital investigation methodologies.
+                        </p>
+                        <div class="certification-status status-earned">
+                            <i data-lucide="check-circle"></i>
+                            Earned
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card animate-on-scroll">
+                    <div class="certification-header cisco"></div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">CCNA: Enterprise Networking, Security & Automation</h3>
+                        <p class="certification-issuer">ISET Kairouan (Cisco Networking Academy)</p>
+                        <p class="certification-date">December 4, 2024</p>
+                        <p class="certification-details">
+                            Advanced networking concepts including enterprise network design, security implementation, and network automation.
+                            <br><strong>Instructor:</strong> Noureddine Grassa
+                        </p>
+                        <div class="certification-status status-earned">
+                            <i data-lucide="check-circle"></i>
+                            Earned
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card animate-on-scroll">
+                    <div class="certification-header cisco"></div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">CCNA: Introduction to Networking</h3>
+                        <p class="certification-issuer">ISET Kairouan (Cisco Networking Academy)</p>
+                        <p class="certification-date">November 27, 2024</p>
+                        <p class="certification-details">
+                            Fundamental networking concepts, protocols, and technologies including OSI model, TCP/IP, and basic network configuration.
+                            <br><strong>Instructor:</strong> Noureddine Grassa
+                        </p>
+                        <div class="certification-status status-earned">
+                            <i data-lucide="check-circle"></i>
+                            Earned
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card animate-on-scroll">
+                    <div class="certification-header git"></div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Git and GitHub</h3>
+                        <p class="certification-issuer">DataScience</p>
+                        <p class="certification-date">November 9, 2024</p>
+                        <p class="certification-details">
+                            Version control fundamentals, Git workflows, GitHub collaboration, and best practices for software development.
+                        </p>
+                        <div class="certification-status status-earned">
+                            <i data-lucide="check-circle"></i>
+                            Earned
+                        </div>
+                        <div class="certification-id">
+                            Certificate ID: CC-043789048
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card animate-on-scroll">
+                    <div class="certification-header security"></div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Junior Cybersecurity Analyst Pathway</h3>
+                        <p class="certification-issuer">Cisco Networking Academy</p>
+                        <p class="certification-date">June 22, 2024</p>
+                        <p class="certification-details">
+                            Comprehensive cybersecurity fundamentals including threat analysis, incident response, and security monitoring.
+                            <br><strong>Instructor:</strong> Lynn Bloemen
+                        </p>
+                        <div class="certification-status status-earned">
+                            <i data-lucide="check-circle"></i>
+                            Earned
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1198,6 +1455,7 @@
                 
                 <div class="footer-links">
                     <a href="#about">About</a>
+                    <a href="#certifications">Certifications</a>
                     <a href="#projects">Projects</a>
                     <a href="#skills">Skills</a>
                     <a href="#contact">Contact</a>
