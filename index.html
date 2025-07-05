@@ -255,6 +255,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
+            margin-bottom: 4rem;
         }
 
         .about-text {
@@ -266,6 +267,213 @@
         .about-text strong {
             color: #3b82f6;
             font-weight: 600;
+        }
+
+        /* Education Section */
+        .education-section {
+            margin: 4rem 0;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .education-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-degree {
+            font-size: 1.2rem;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .education-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .education-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .education-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #475569;
+        }
+
+        .education-item i {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #3b82f6;
+        }
+
+        .honor-badge {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .honor-badge i {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* CV Download Section */
+        .cv-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 4rem;
+        }
+
+        .cv-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .cv-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .cv-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-info p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        .cv-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cv-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cv-feature i {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .cv-download-btn {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cv-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: #f8fafc;
+        }
+
+        .cv-contact {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cv-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .cv-contact-item i {
+            width: 1rem;
+            height: 1rem;
         }
 
         .highlights {
@@ -423,6 +631,31 @@
             padding: 0.25rem 0.5rem;
             border-radius: 4px;
             margin-top: 0.5rem;
+        }
+/* Verification Button */
+        .verify-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .verify-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .verify-btn i {
+            width: 1rem;
+            height: 1rem;
         }
 
         /* Projects Section */
@@ -744,6 +977,20 @@
                 gap: 2rem;
             }
 
+            .education-details {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .cv-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cv-contact {
+                justify-content: center;
+            }
+
             .certifications-grid {
                 grid-template-columns: 1fr;
             }
@@ -885,6 +1132,105 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Education Section -->
+            <div class="education-section animate-on-scroll">
+                <div class="education-card">
+                    <div class="education-header">
+                        <div class="education-icon">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="education-title">Education</h3>
+                            <p class="education-degree">🎓 Bachelor of Information Technology in Computer System Networks</p>
+                        </div>
+                    </div>
+                    
+                    <div class="education-details">
+                        <div class="education-info">
+                            <div class="education-item">
+                                <i data-lucide="building"></i>
+                                <span><strong>ISET Kairouan</strong> - Higher Institute of Technological Studies</span>
+                            </div>
+                            <div class="education-item">
+                                <i data-lucide="calendar"></i>
+                                <span><strong>Duration:</strong> 2021 – 2025</span>
+                            </div>
+                            <div class="education-item">
+                                <i data-lucide="map-pin"></i>
+                                <span><strong>Location:</strong> Kairouan, Tunisia</span>
+                            </div>
+                        </div>
+                        
+                        <div class="education-info">
+                            <div class="education-item">
+                                <i data-lucide="star"></i>
+                                <span><strong>Average:</strong> 18/20</span>
+                            </div>
+                            <div class="education-item">
+                                <i data-lucide="award"></i>
+                                <span><strong>Status:</strong> With Honor</span>
+                            </div>
+                            <div class="education-item">
+                                <i data-lucide="book-open"></i>
+                                <span><strong>Specialization:</strong> Network Engineering & DevOps</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="honor-badge">
+                        <i data-lucide="trophy"></i>
+                        Graduated with Honor - 18/20 Average
+                    </div>
+                </div>
+            </div>
+
+            <!-- CV Download Section -->
+            <div class="cv-section animate-on-scroll">
+                <div class="cv-content">
+                    <div class="cv-info">
+                        <h3>📄 Download My Complete CV</h3>
+                        <p>Get the full details of my professional experience, technical skills, and achievements in a comprehensive PDF format.</p>
+                        
+                        <div class="cv-features">
+                            <div class="cv-feature">
+                                <i data-lucide="user"></i>
+                                <span>Summary</span>
+                            </div>
+                            <div class="cv-feature">
+                                <i data-lucide="briefcase"></i>
+                                <span>Work Experience</span>
+                            </div>
+                            <div class="cv-feature">
+                                <i data-lucide="award"></i>
+                                <span>Certifications</span>
+                            </div>
+                            <div class="cv-feature">
+                                <i data-lucide="code"></i>
+                                <span>Technical Skills</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-contact">
+                            <div class="cv-contact-item">
+                                <i data-lucide="mail"></i>
+                                <span>hammatlili666@gmail.com</span>
+                            </div>
+                            <div class="cv-contact-item">
+                                <i data-lucide="map-pin"></i>
+                                <span>Kairouan, Tunisia</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <a href="https://drive.google.com/file/d/19SGLrobVoG9qKo3hQgxSTrB5ZCP3wOmS/view?usp=sharing" target="_blank" class="cv-download-btn">
+                            <i data-lucide="download"></i>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -947,6 +1293,10 @@
                             <i data-lucide="check-circle"></i>
                             Earned
                         </div>
+                         <a href="https://www.udemy.com/certificate/UC-d20828d9-878b-4c56-82b8-4efea4cfe17c/" target="_blank" class="verify-btn">
+                            <i data-lucide="external-link"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
 
@@ -964,6 +1314,10 @@
                             <i data-lucide="check-circle"></i>
                             Earned
                         </div>
+                        <a href="https://www.credly.com/badges/b2e6c143-5470-493a-b06d-f4b253f3a7aa" target="_blank" class="verify-btn">
+                            <i data-lucide="shield-check"></i>
+                            View on Credly
+                        </a>
                     </div>
                 </div>
 
@@ -981,6 +1335,10 @@
                             <i data-lucide="check-circle"></i>
                             Earned
                         </div>
+                        <a href="https://www.credly.com/badges/387a9a9a-7b5b-4c86-87eb-6bf396f02c5b/linked_in_profile" target="_blank" class="verify-btn">
+                            <i data-lucide="shield-check"></i>
+                            View on Credly
+                        </a>
                     </div>
                 </div>
 
@@ -1000,6 +1358,10 @@
                         <div class="certification-id">
                             Certificate ID: CC-043789048
                         </div>
+                        <a href="https://learn.365datascience.com/certificates/CC-0437B90948/" target="_blank" class="verify-btn">
+                            <i data-lucide="external-link"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
 
@@ -1017,6 +1379,10 @@
                             <i data-lucide="check-circle"></i>
                             Earned
                         </div>
+                        <a href="https://www.credly.com/badges/a6694be5-cebc-41ee-85d6-152dc6a44910" target="_blank" class="verify-btn">
+                            <i data-lucide="shield-check"></i>
+                            View on Credly
+                        </a>
                     </div>
                 </div>
             </div>
