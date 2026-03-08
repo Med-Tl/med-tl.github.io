@@ -1,0 +1,70 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // ── Helpers ───────────────────────────────────────────────────────────────
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      // Note: Storage rules cannot call Firestore directly.
+      // Use custom claims set via Firebase Admin SDK for role checks.
+      return request.auth.token.role == 'admin';
+    }
+
+    function isOwner(uid) {
+      return request.auth.uid == uid;
+    }
+
+    function isValidFileType() {
+      return request.resource.contentType.matches('application/pdf') ||
+             request.resource.contentType.matches('application/zip') ||
+             request.resource.contentType.matches('image/.*') ||
+             request.resource.contentType.matches('text/.*');
+    }
+
+    function isUnder100MB() {
+      return request.resource.size < 100 * 1024 * 1024;
+    }
+
+    // ── Submissions ───────────────────────────────────────────────────────────
+    // Path: submissions/{studentId}/{filename}
+    match /submissions/{studentId}/{allPaths=**} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      isOwner(studentId) &&
+                      isValidFileType() &&
+                      isUnder100MB();
+    }
+
+    // ── Lab Submissions ───────────────────────────────────────────────────────
+    // Path: lab-submissions/{labId}/{studentId}_{timestamp}.ext
+    match /lab-submissions/{labId}/{allPaths=**} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() &&
+                      isValidFileType() &&
+                      isUnder100MB();
+    }
+
+    // ── Resources (teacher uploads) ───────────────────────────────────────────
+    // Path: resources/{teacherId}/{filename}
+    match /resources/{teacherId}/{allPaths=**} {
+      allow read: if isAuthenticated();
+      // For now allow any authenticated user; tighten with custom claims
+      allow write: if isAuthenticated() && isUnder100MB();
+    }
+
+    // ── Task Attachments ──────────────────────────────────────────────────────
+    // Path: tasks/{taskId}/{filename}
+    match /tasks/{taskId}/{allPaths=**} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && isUnder100MB();
+    }
+
+    // ── Deny everything else ──────────────────────────────────────────────────
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
